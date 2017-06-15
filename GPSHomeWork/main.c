@@ -6,28 +6,23 @@
 //  Copyright © 2017年 20161104591. All rights reserved.
 //
 
-#include <stdio.h>
-
+#include<stdio.h>
 int main()
 {
-    FILE *fr;
-    FILE *fw;
-    fr=fopen("//Users//a20161104591//Desktop//GPSHomeWork//input.txt","w");
-    fw=fopen("//Users//a20161104591//Desktop//GPSHomeWork//output.txt","w");
-    int i,j,n,m,s;
+    FILE *fp1;
+    FILE *fp2;
+    fp1=fopen("//Users//a20161104591//Desktop//GPSHomeWork//input.txt","r");
+    fp2=fopen("//Users//a20161104591//Desktop//GPSHomeWork//output.txt","w");
+    int i,j,m;
     int a[10];
-    printf("请输入10个数字:\n");
-    while(scanf("%d",&n)!=EOF)
+    printf("请输入10个数字：\n");
+    for(i=0;i<10;i++)
     {
-        for(s=1;s<=11;s++)
-        {
-            scanf("%d\n",&a[s]);
-            fprintf(fr,"%d",a[s]);
-        }
+        fscanf(fp1,"%d\n",&a[i]);
     }
-    for(j=0;j<=n-1;j++)
+    for(j=0;j<9;j++)
     {
-        for(i=0;i<=n-1;i++)
+        for(i=0;i<9-j;i++)
         {
             if(a[i]>a[i+1])
             {
@@ -37,10 +32,10 @@ int main()
             }
         }
     }
-    for(s=0;s<i;s++)
+    for(i=0;i<10;i++)
     {
         printf("%d",a[i]);
-        fprintf(fr,"%d",a[s]);
+        fprintf(fp2,"%d\n",a[i]);
     }
     return 0;
 }
